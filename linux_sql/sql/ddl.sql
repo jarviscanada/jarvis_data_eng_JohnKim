@@ -1,3 +1,6 @@
+-- Switching to host_agent db
+\c host_agent
+
 CREATE TABLE IF NOT EXISTS public.host_info
   (
      id               SERIAL NOT NULL,
