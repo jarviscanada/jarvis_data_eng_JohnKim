@@ -59,7 +59,7 @@ crontab -e
 
 ## Architecture
 
-Draw a cluster diagram with three Linux hosts, a DB, and agents (use draw.io website). Image must be saved to the `assets` directory.
+![Cluster Architecture](assets/diagram.png)
 
 ## Scripts
 
@@ -117,11 +117,11 @@ crontab -e
 # Test
 
 - Testing for the bash scripts were accomplished through the CLI and comparing the output to the expected output.
-- SQL commands were tested using sample data and comparing the tables to with the expected tables.
+- SQL commands were tested using sample data and comparing the tables with the expected tables.
 
 # Deployment
 
-The LCMA is deployed on the Jarvis Repository through github. This includes all the scripts and instructions for running said scripts.
+The LCMA is deployed on the Jarvis Repository through Github. This includes all the scripts and instructions.
 
 # Improvements
 
