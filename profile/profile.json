@@ -4,7 +4,7 @@
       "awards_achievements": [
         "Dean's List (2022)"
       ],
-      "degree": "Honors Bachelor of Computing",
+      "degree": "Honours Bachelor of Computing",
       "department": "Computer Science",
       "duration": "2019-2022",
       "school_name": "University of Guelph"
@@ -13,7 +13,7 @@
   "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_JohnKim",
   "highlighted_projects": [
     {
-      "description": "Released a CI/CD GitHub Action on the marketplace, that automates the process of embedding AI-generated image elements into HTML files. Leveraged OpenAI’s DALL-E 3 AI model to generate images from textual descriptions found within HTML comments and utilized BeautifulSoup in Python to parse HTML files, identify custom comments for image generation, and replace them with \u003cimg\u003e tags. Finally, packaged the Bash and Python scripts within a Docker Container to ensure consistency and reliability across different execution environments.",
+      "description": "Released a CI/CD GitHub Action on the marketplace, that automates the process of embedding AI-generated image elements into HTML files. Leveraged OpenAI’s DALL-E 3 AI model to generate images from textual descriptions found within HTML comments and utilized BeautifulSoup in Python to parse HTML files, identify custom comments for image generation, and replace them with img tags. Finally, packaged the Bash and Python scripts within a Docker Container to ensure consistency and reliability across different execution environments.",
       "git_url": "https://github.com/peanutKim/dalle3-html-image-embedder",
       "name": "DALL-E 3 Image Embedder CI/CD Action"
     },
@@ -72,15 +72,15 @@
     ],
     "proficient": [
       "RDBMS/SQL",
-      "MongoDB",
-      "Github CI/CD",
-      "Linux/Bash",
       "Typescript/JavaScript",
       "React",
       "Python",
+      "MongoDB",
+      "CI/CD",
+      "Linux/Bash",
       "Agile/Scrum",
       "Git"
     ]
   },
-  "summary": "I am a recent graduate from the University of Guelph with a Bachelor of Computing in Computer Science. At Jarvis, I have collaborated within Agile teams, working on projects that combine my interests in automation, software development, and leveraging data through efficient database management. Additionally, I have experience as a Full Stack Developer at PurchaseKorea LLC, where I utilized technologies such as Next.js, React, PayloadCMS, TypeScript, and MongoDB to build a scalable platform supporting high user web traffic. I am passionate about continuous learning which drives me to stay on top of emerging technologies, and love tackling new challenges. I believe that throughout my career, there will always be more to learn, but I am confident that my adaptability and dedication make me a valuable asset to any team."
+  "summary": "I am a recent graduate from the University of Guelph with a Bachelor of Computing in Computer Science. Currently, I work for Jarvis where I have collaborated within Agile teams, working on projects that combine my interests in automation, software development, and leveraging data through efficient database management. Additionally, I have experience as a Full Stack Developer at PurchaseKorea LLC, where I utilized technologies such as Next.js, React, PayloadCMS, TypeScript, and MongoDB to build a scalable platform supporting high user web traffic. I love tackling new challenges and am passionate about continuous learning, which drives me to stay on top of emerging technologies. I believe that throughout my career, there will always be more to learn, but I am confident that my adaptability and dedication make me a valuable asset to any team."
 }

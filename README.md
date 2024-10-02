@@ -1,10 +1,10 @@
 # John Kim . Jarvis Consulting
 
-I am a recent graduate from the University of Guelph with a Bachelor of Computing in Computer Science. At Jarvis, I have collaborated within Agile teams, working on projects that combine my interests in automation, software development, and leveraging data through efficient database management. Additionally, I have experience as a Full Stack Developer at PurchaseKorea LLC, where I utilized technologies such as Next.js, React, PayloadCMS, TypeScript, and MongoDB to build a scalable platform supporting high user web traffic. I am passionate about continuous learning which drives me to stay on top of emerging technologies, and love tackling new challenges. I believe that throughout my career, there will always be more to learn, but I am confident that my adaptability and dedication make me a valuable asset to any team.
+I am a recent graduate from the University of Guelph with a Bachelor of Computing in Computer Science. Currently, I work for Jarvis where I have collaborated within Agile teams, working on projects that combine my interests in automation, software development, and leveraging data through efficient database management. Additionally, I have experience as a Full Stack Developer at PurchaseKorea LLC, where I utilized technologies such as Next.js, React, PayloadCMS, TypeScript, and MongoDB to build a scalable platform supporting high user web traffic. I love tackling new challenges and am passionate about continuous learning, which drives me to stay on top of emerging technologies. I believe that throughout my career, there will always be more to learn, but I am confident that my adaptability and dedication make me a valuable asset to any team.
 
 ## Skills
 
-**Proficient:** RDBMS/SQL, MongoDB, Github CI/CD, Linux/Bash, Typescript/JavaScript, React, Python, Agile/Scrum, Git
+**Proficient:** RDBMS/SQL, Typescript/JavaScript, React, Python, MongoDB, CI/CD, Linux/Bash, Agile/Scrum, Git
 
 **Competent:** Docker, NodeJS, NextJS, REST API, Java, C
 
@@ -19,7 +19,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JohnKim](h
 
 
 ## Highlighted Projects
-**DALL-E 3 Image Embedder CI/CD Action** [[GitHub](https://github.com/peanutKim/dalle3-html-image-embedder)]: Released a CI/CD GitHub Action on the marketplace, that automates the process of embedding AI-generated image elements into HTML files. Leveraged OpenAI’s DALL-E 3 AI model to generate images from textual descriptions found within HTML comments and utilized BeautifulSoup in Python to parse HTML files, identify custom comments for image generation, and replace them with <img> tags. Finally, packaged the Bash and Python scripts within a Docker Container to ensure consistency and reliability across different execution environments.
+**DALL-E 3 Image Embedder CI/CD Action** [[GitHub](https://github.com/peanutKim/dalle3-html-image-embedder)]: Released a CI/CD GitHub Action on the marketplace, that automates the process of embedding AI-generated image elements into HTML files. Leveraged OpenAI’s DALL-E 3 AI model to generate images from textual descriptions found within HTML comments and utilized BeautifulSoup in Python to parse HTML files, identify custom comments for image generation, and replace them with img tags. Finally, packaged the Bash and Python scripts within a Docker Container to ensure consistency and reliability across different execution environments.
 
 **UofG Docker/Kurbernetes Education Environments**: Assisted Dr.McCuaig in creating Docker/ Kubernetes solutions to provide UofG CS courses with remote programming container environments. Presented a mechanism proposal to university system administrators, facilitating selection of preferred mechanisms for further development. Produced video step-by-step documentation to guide future students, teaching assistants, and instructors in using the container environments effectively.
 
@@ -32,7 +32,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JohnKim](h
 
 
 ## Education
-**University of Guelph (2019-2022)**, Honors Bachelor of Computing, Computer Science
+**University of Guelph (2019-2022)**, Honours Bachelor of Computing, Computer Science
 - Dean's List (2022)
 
 
