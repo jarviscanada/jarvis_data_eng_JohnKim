@@ -1,0 +1,112 @@
+# Preferred name (Characters only)
+name: "John Kim"
+# Your GitHub repo root URL
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_JohnKim
+
+# Introduce yourself, your academic and professional background.
+# What excites you about the software industry and your passion. At least 80 words
+summary: "I am a recent graduate from the University of Guelph with a Bachelor of Computing in Computer Science. At Jarvis, I have collaborated within Agile teams, working on projects that combine my interests in automation, software development, and leveraging data through efficient database management. Additionally, I have experience as a Full Stack Developer at PurchaseKorea LLC, where I utilized technologies such as Next.js, React, PayloadCMS, TypeScript, and MongoDB to build a scalable platform supporting high user web traffic. I am passionate about continuous learning which drives me to stay on top of emerging technologies, and love tackling new challenges. I believe that throughout my career, there will always be more to learn, but I am confident that my adaptability and dedication make me a valuable asset to any team."
+
+# Group your skills by level.
+# Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
+skills:
+  # At least 5 skills
+  proficient:
+    - RDBMS/SQL
+    - MongoDB
+    - Github CI/CD
+    - Linux/Bash
+    - Typescript/JavaScript
+    - React
+    - Python
+    - Agile/Scrum
+    - Git
+  # At least 5 skills
+  competent:
+    - Docker
+    - NodeJS
+    - NextJS
+    - REST API
+    - Java
+    - C
+  # At least 5 skills
+  familiar:
+    - AWS DynamoDB
+    - Firebase + Firestore
+    - Google Cloud Platform (GCP)
+    - GraphQL
+    - Flask
+
+# List of Jarvis projects
+jarvis_projects:
+  - name: "Cluster Monitor"
+    git_url: "https://github.com/jarviscanada/jarvis_data_eng_JohnKim/tree/master/linux_sql"
+    # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: Developed a resource analytics tool to continuously record hardware and usage data, including CPU specifications, memory utilization, and disk I/O performance metrics. The Linux Cluster Monitoring agent can be used for a single machine but optimally would be hosted on multiple Linux nodes in a cluster. Each node would collect hardware and usage data via Bash scripts scheduled by a cronjob, storing the information in a shared PostgreSQL database hosted in a Docker container. The primary users of this tool are system administrators, DevOps engineers, and other IT professionals responsible for ensuring the efficiency of their server infrastructure.
+  #- name: "Core Java Apps"
+  #  git_url: "/core_java"
+  #  description:
+  #    - "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+  #    - "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+  #    - "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+  #- name: "Springboot App"
+  #  git_url: "/springboot"
+  #  description: ""
+  #- name: "Python Data Analytics"
+  #  git_url: "/python_data_anlytics"
+  #  description: ""
+  #- name: "Hadoop"
+  #  git_url: "/hadoop"
+  #  description: ""
+  #- name: "Spark"
+  #  git_url: "/spark"
+  #  description: ""
+  #- name: "Cloud/DevOps"
+  #  git_url: "/cloud_devops"
+  #  description: ""
+
+# List of personal or academic projects
+# Feel free to add more projects
+highlighted_projects:
+    #project name
+  - name: "DALL-E 3 Image Embedder CI/CD Action"
+    #URL is optional
+    git_url: "https://github.com/peanutKim/dalle3-html-image-embedder"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: Released a CI/CD GitHub Action on the marketplace, that automates the process of embedding AI-generated image elements into HTML files. Leveraged OpenAI’s DALL-E 3 AI model to generate images from textual descriptions found within HTML comments and utilized BeautifulSoup in Python to parse HTML files, identify custom comments for image generation, and replace them with <img> tags. Finally, packaged the Bash and Python scripts within a Docker Container to ensure consistency and reliability across different execution environments.
+  - name: "UofG Docker/Kurbernetes Education Environments"
+    git_url:
+    description: Assisted Dr.McCuaig in creating Docker/ Kubernetes solutions to provide UofG CS courses with remote programming container environments. Presented a mechanism proposal to university system administrators, facilitating selection of preferred mechanisms for further development. Produced video step-by-step documentation to guide future students, teaching assistants, and instructors in using the container environments effectively.
+
+#List of professional experience
+#The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+#The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
+professional_experience:
+  #Write your Jarvis role as a professional experience rather than training.
+  - title: "Software Developer"
+    company: "Jarvis"
+    duration: "2024-present"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Collaborated within Agile/Scrum teams on diverse software and data-driven projects, participating in daily stand-ups, reviews, and sprints. Developed a Linux Cluster Monitoring Agent using Docker, Bash, and PostgreSQL to gather performance data, improving resource analytics. Utilized GitFlow for version control, ensuring consistency across remote repositories throughout the SDLC."
+  - title: "Full Stack Developer"
+    company: "PurchaseKorea LLC"
+    duration: "2023-2024"
+    description: "Led the development of PurchaseKorea.com, achieving 10K+ monthly active users within the first six months of launch. Developed the e-commerce platform utilizing technologies such as Next.js, React, TRPC, TypeScript, Payload CMS, Tailwind, Express, React-Query, and more. Developed and managed the MongoDB database, ensuring efficient data storage and retrieval to achieve optimal cost per performance. Deployed Docker containers on Google Cloud Platform (GCP), running Node.js scripts to support application functionality. Coordinated with team members to align project sprint goals and timelines."
+
+#List of edcuation
+education: 
+  - school_name: "University of Guelph"
+    duration: "2019-2022"
+    degree: "Honors Bachelor of Computing"
+    department: "Computer Science"
+    # optional
+    awards_achievements: 
+      - "Dean's List (2022)"
+
+#Optional section
+others:
+  - title: "Activities/Hobbies"
+    bullets:
+      - "TFT Auto Chess - Reached top 100 NA (0.011% of player base) and played in multiple tournaments series with thousands of dollars in prize pools."
+      - "Avid Kickboxer - Trained in Muay Thai and Kickboxing for 6 years."
