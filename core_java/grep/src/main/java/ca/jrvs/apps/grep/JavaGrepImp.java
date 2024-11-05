@@ -65,20 +65,18 @@ public class JavaGrepImp implements JavaGrep {
 
     @Override
     public List<File> listFiles(String rootDir) {
-        // Initialize an empty list to store files
         List<File> fileList = new ArrayList<>();
-
-        // Create a File object for the root directory
         File root = new File(rootDir);
 
-        // Get a list of files in the root directory
         if (root.isDirectory()) {
             File[] files = root.listFiles();
-
-            // Add each file to the list
-            for (File file : files) {
-                if (!file.isDirectory()) {
-                    fileList.add(file);
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isDirectory()) {
+                        fileList.addAll(listFiles(file.getAbsolutePath()));
+                    } else {
+                        fileList.add(file);
+                    }
                 }
             }
         }
