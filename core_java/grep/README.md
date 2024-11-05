@@ -4,7 +4,17 @@
 The Java Grep App is a command-line tool that mimics the grep command. It searches for regex patterns in text files within a specified directory and its subdirectories, outputting matched lines to a file. Developed in Java, it leverages core Java libraries for file I/O, regex matching, and logging with SLF4J. The app uses Stream APIs for memory efficiency and is built with Maven, packaged with Docker, and uploaded to Docker Hub for ease of use.
 
 # Quick Start
-How to use your apps? 
+Follow these steps to quickly get started with the Java Grep App:
+
+1. Build the project using Maven:
+```
+mvn clean compile package
+```
+2. Run the application:
+```
+java -jar target/grep-1.0-SNAPSHOT.jar regex rootPath outFile
+```
+
 
 #Implemenation
 ## Pseudocode
