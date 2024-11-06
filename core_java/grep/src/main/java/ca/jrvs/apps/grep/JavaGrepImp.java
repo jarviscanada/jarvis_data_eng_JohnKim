@@ -1,14 +1,16 @@
 package ca.jrvs.apps.grep;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import org.apache.log4j.BasicConfigurator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class JavaGrepImp implements JavaGrep {
+
+    final Logger logger = LoggerFactory.getLogger(JavaGrep.class);
 
     private String regex;
     private String rootPath;
@@ -52,7 +54,7 @@ public class JavaGrepImp implements JavaGrep {
         List<String> matchedLines = new ArrayList<>();
         // Initialize an empty list to store matched lines
         for (File file : files) {
-            System.out.println(file.getName());
+            logger.info("Processing file: {}", file.getName());
             List<String> lines = readLines(file);
             for (String line : lines) {
                 if (containsPattern(line)) {
@@ -119,6 +121,7 @@ public class JavaGrepImp implements JavaGrep {
             throw new IllegalArgumentException("USAGE: JavaGrep regex rootPath outFile");
         }
 
+        BasicConfigurator.configure();
         JavaGrepImp javaGrepImp = new JavaGrepImp();
         javaGrepImp.setRegex(args[0]);
         javaGrepImp.setRootPath(args[1]);
