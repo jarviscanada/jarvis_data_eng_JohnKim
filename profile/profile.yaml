@@ -44,12 +44,12 @@ jarvis_projects:
     # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
     # The project description must start with an action verb (https://bit.ly/3guO98u)
     description: Developed a resource analytics tool to continuously record hardware and usage data, including CPU specifications, memory utilization, and disk I/O performance metrics. The Linux Cluster Monitoring agent can be used for a single machine but optimally would be hosted on multiple Linux nodes in a cluster. Each node would collect hardware and usage data via Bash scripts scheduled by a cronjob, storing the information in a shared PostgreSQL database hosted in a Docker container. The primary users of this tool are system administrators, DevOps engineers, and other IT professionals responsible for ensuring the efficiency of their server infrastructure.
-  #- name: "Core Java Apps"
-  #  git_url: "/core_java"
-  #  description:
+  - name: "Core Java Apps"
+    git_url: "/core_java"
+    description:
   #    - "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
   #    - "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-  #    - "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+      - "Grep App: The Java Grep App is a command-line tool that mimics the grep command. It searches for regex patterns in text files within a specified directory and its subdirectories, outputting matched lines to a file. Developed in Java, it leverages core Java libraries for file I/O, regex matching, and logging with SLF4J. The app uses Stream APIs for memory efficiency and is built with Maven, packaged with Docker, and uploaded to Docker Hub for ease of use."
   #- name: "Springboot App"
   #  git_url: "/springboot"
   #  description: ""
