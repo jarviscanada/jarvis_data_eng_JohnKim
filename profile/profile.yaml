@@ -47,9 +47,7 @@ jarvis_projects:
   - name: "Core Java Apps"
     git_url: "https://github.com/jarviscanada/jarvis_data_eng_JohnKim/tree/master/core_java"
     description:
-      - "Twitter App: Developed an application that uses the Twitter REST API to post, read and delete tweets. The application uses the OAuth 1.0 authentication method and is designed through the MVC architecture, in which business logic and data handling are compartmentalized into separate interactive layers. Maven is used for managing and maintaining the project, which is deployed through a Docker image. JUnit is used for integration and unit testing."
-      - "JDBC App: Developed an application that allows users' manipulating a PostgreSQL database through Java programming. The application is equipped with the ability to perform CRUD (Create, Read, Update, Delete) operations on Customer and Order data. The Data Access Object (DAO) pattern is implemented to manipulate Data Transfer Objects (DTO)."
-      - "Grep App: Developed an application to facilitate recursive text-searching based on regular expressions. Given a root directory, the application searches through all files and subdirectories for matches to a specific pattern. The application is deployed through a docker image to ensure consistent runtime environments as well as implements core Java file I/O Stream APIs and Lambda functions, managed with Apache Maven."
+      - "Grep App: The Java Grep App is a command-line tool that mimics the grep command. It searches for regex patterns in text files within a specified directory and its subdirectories, outputting matched lines to a file. Developed in Java, it leverages core Java libraries for file I/O, regex matching, and logging with SLF4J. The app uses Stream APIs for memory efficiency and is built with Maven, packaged with Docker, and uploaded to Docker Hub for ease of use."
   #- name: "Springboot App"
   #  git_url: "/springboot"
   #  description: ""
