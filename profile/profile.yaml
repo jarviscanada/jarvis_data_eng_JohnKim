@@ -47,7 +47,8 @@ jarvis_projects:
   - name: "Core Java Apps"
     git_url: "https://github.com/jarviscanada/jarvis_data_eng_JohnKim/tree/master/core_java"
     description:
-      - "Grep App: Developed an application to facilitate recursive text-searching based on regular expressions. Given a root directory, the application searches through all files and subdirectories for matches to a specific pattern. The application is deployed through a docker image to ensure consistent runtime environments as well as implements core Java file I/O Stream APIs and Lambda functions, managed with Apache Maven."
+      - "JDBC App: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      - "Grep App: The Java Grep App is a command-line tool that mimics the grep command. It searches for regex patterns in text files within a specified directory and its subdirectories, outputting matched lines to a file. Developed in Java, it leverages core Java libraries for file I/O, regex matching, and logging with SLF4J. The app uses Stream APIs for memory efficiency and is built with Maven, packaged with Docker, and uploaded to Docker Hub for ease of use."
   #- name: "Springboot App"
   #  git_url: "/springboot"
   #  description: ""
