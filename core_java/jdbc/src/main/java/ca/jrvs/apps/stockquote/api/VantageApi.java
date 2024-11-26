@@ -1,4 +1,4 @@
-package ca.jrvs.apps.jdbc.api;
+package ca.jrvs.apps.stockquote.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
