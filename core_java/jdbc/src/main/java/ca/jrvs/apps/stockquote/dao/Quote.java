@@ -30,8 +30,53 @@ public class Quote {
 
     private Timestamp timestamp; // time when the info was pulled
 
+    // Setters
     public void setTimestamp() {
         this.timestamp = new Timestamp(System.currentTimeMillis());
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
+    }
+
+    public void setOpen(double open) {
+        this.open = open;
+    }
+
+    public void setHigh(double high) {
+        this.high = high;
+    }
+
+    public void setLow(double low) {
+        this.low = low;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
+
+    public void setLatestTradingDay(Date latestTradingDay) {
+        this.latestTradingDay = latestTradingDay;
+    }
+
+    public void setPreviousClose(double previousClose) {
+        this.previousClose = previousClose;
+    }
+
+    public void setChange(double change) {
+        this.change = change;
+    }
+
+    public void setChangePercent(String changePercent) {
+        this.changePercent = changePercent;
     }
 
     // Getters for testings
