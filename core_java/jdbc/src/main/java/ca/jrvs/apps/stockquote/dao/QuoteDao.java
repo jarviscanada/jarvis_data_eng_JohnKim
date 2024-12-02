@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Optional;
 import java.util.Properties;
 
@@ -18,7 +19,7 @@ public class QuoteDao implements CrudDao<Quote, String> {
     }
 
     public Quote save(Quote entity) throws IllegalArgumentException {
-        String insert = "INSERT INTO quote (symbol, open, high, low, price, volume, latest_trading_day, previous_close, change, change_percent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String insert = "INSERT INTO quote (symbol, open, high, low, price, volume, latest_trading_day, previous_close, change, timestamp, change_percent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         try (PreparedStatement stmt = c.prepareStatement(insert);) {
             stmt.setString(1, entity.getTicker());
             stmt.setDouble(2, entity.getOpen());
@@ -29,23 +30,24 @@ public class QuoteDao implements CrudDao<Quote, String> {
             stmt.setDate(7, entity.getLatestTradingDay());
             stmt.setDouble(8, entity.getPreviousClose());
             stmt.setDouble(9, entity.getChange());
-            stmt.setString(10, entity.getChangePercent());
+            stmt.setTimestamp(10, entity.getTimestamp());
+            stmt.setString(11, entity.getChangePercent());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
-        return null;
+        return entity;
     }
 
     public Optional<Quote> findById(String id) throws IllegalArgumentException {
         String find = "SELECT * FROM quote WHERE symbol = ?;";
-        Quote quote = new Quote();
         try (PreparedStatement stmt = c.prepareStatement(find);) {
             stmt.setString(1, id);
             ResultSet result = stmt.executeQuery();
             if (result.next()) {
+                Quote quote = new Quote();
                 quote.setTicker(result.getString("symbol"));
                 quote.setOpen(result.getDouble("open"));
                 quote.setHigh(result.getDouble("high"));
@@ -56,13 +58,15 @@ public class QuoteDao implements CrudDao<Quote, String> {
                 quote.setPreviousClose(result.getDouble("previous_close"));
                 quote.setChange(result.getDouble("change"));
                 quote.setChangePercent(result.getString("change_percent"));
+                quote.setTimestamp(result.getTimestamp("timestamp"));
+                return Optional.of(quote);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
-        return Optional.of(quote);
+        return Optional.empty();
     }
 
     public Iterable<Quote> findAll() {
@@ -82,6 +86,7 @@ public class QuoteDao implements CrudDao<Quote, String> {
                 quote.setPreviousClose(result.getDouble("previous_close"));
                 quote.setChange(result.getDouble("change"));
                 quote.setChangePercent(result.getString("change_percent"));
+                quote.setTimestamp(result.getTimestamp("timestamp"));
                 ((ArrayList<Quote>) quotes).add(quote);
             }
         } catch (SQLException e) {
@@ -122,24 +127,15 @@ public class QuoteDao implements CrudDao<Quote, String> {
             QuoteHttpHelper httpHelper = new QuoteHttpHelper();
             Quote test = httpHelper.getStockQuote("GME");
             QuoteDao dao = new QuoteDao(conn);
+            dao.deleteAll();
             dao.save(test);
             Optional<Quote> optionalQuote = dao.findById("GME");
             optionalQuote.ifPresent(quote -> {
                 // Access methods of the Quote object
                 System.out.println("Quote: " + quote.getPrice());
             });
-            // Iterable<Quote> quotes = dao.findAll();
-            // quotes.forEach(quote -> {
-            // Access methods of the Quote object
-            // System.out.println("Quote: " + quote.getPrice());
-            // });
-            dao.deleteById("GME");
-            // dao.deleteAll();
-            optionalQuote = dao.findById("GME");
-            optionalQuote.ifPresent(quote -> {
-                // Access methods of the Quote object
-                System.out.println("Quote: " + quote.getPrice());
-            });
+            Iterator<Quote> quotes = dao.findAll().iterator();
+
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }

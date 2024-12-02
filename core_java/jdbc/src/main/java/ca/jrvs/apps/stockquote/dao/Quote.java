@@ -2,6 +2,7 @@ package ca.jrvs.apps.stockquote.dao;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -122,5 +123,48 @@ public class Quote {
 
     public Timestamp getTimestamp() {
         return timestamp;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Quote quote = (Quote) o;
+        return Double.compare(quote.open, open) == 0 &&
+                Double.compare(quote.high, high) == 0 &&
+                Double.compare(quote.low, low) == 0 &&
+                Double.compare(quote.price, price) == 0 &&
+                volume == quote.volume &&
+                Double.compare(quote.previousClose, previousClose) == 0 &&
+                Double.compare(quote.change, change) == 0 &&
+                Objects.equals(ticker, quote.ticker) &&
+                Objects.equals(latestTradingDay, quote.latestTradingDay) &&
+                Objects.equals(changePercent, quote.changePercent) &&
+                Objects.equals(timestamp, quote.timestamp);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ticker, open, high, low, price, volume, latestTradingDay, previousClose, change,
+                changePercent, timestamp);
+    }
+
+    @Override
+    public String toString() {
+        return "Quote{" +
+                "ticker='" + ticker + '\'' +
+                ", open=" + open +
+                ", high=" + high +
+                ", low=" + low +
+                ", price=" + price +
+                ", volume=" + volume +
+                ", latestTradingDay=" + latestTradingDay +
+                ", previousClose=" + previousClose +
+                ", change=" + change +
+                ", changePercent='" + changePercent + '\'' +
+                ", timestamp=" + timestamp +
+                '}';
     }
 }
