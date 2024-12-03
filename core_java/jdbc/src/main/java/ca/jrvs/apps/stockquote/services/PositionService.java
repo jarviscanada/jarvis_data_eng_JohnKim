@@ -1,9 +1,5 @@
 package ca.jrvs.apps.stockquote.services;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 import ca.jrvs.apps.stockquote.dao.Position;
 import ca.jrvs.apps.stockquote.dao.PositionDao;
 
@@ -39,13 +35,4 @@ public class PositionService {
     public void sell(String ticker) {
         dao.deleteById(ticker);
     }
-
-    public static void main(String[] args) throws SQLException {
-        Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/stock_quote", "postgres",
-                "password");
-        PositionDao dao = new PositionDao(c);
-        PositionService service = new PositionService(dao);
-        service.buy("AAPL", 10, 100);
-    }
-
 }

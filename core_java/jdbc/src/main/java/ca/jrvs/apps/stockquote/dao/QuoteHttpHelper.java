@@ -34,7 +34,7 @@ public class QuoteHttpHelper {
         Request request = new Request.Builder()
                 .url("https://alpha-vantage.p.rapidapi.com/query?function=GLOBAL_QUOTE&symbol=" + ticker
                         + "&datatype=json")
-                .header("X-RapidAPI-Key", apiKey)
+                .header("X-RapidAPI-Key", "9f33b7490bmsh607e6ec0a839621p1c6ab9jsn91d5f9c379ad")
                 .header("X-RapidAPI-Host", "alpha-vantage.p.rapidapi.com")
                 .get()
                 .build();
@@ -44,6 +44,9 @@ public class QuoteHttpHelper {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response.body().string());
 
+            if (root == null || root.get("Global Quote") == null) {
+                throw new IllegalArgumentException("No data found for the given symbol");
+            }
             // Create a Quote object from the JSON response
             String globalQuote = root.get("Global Quote").toString();
             quote = mapper.readValue(globalQuote, Quote.class);
