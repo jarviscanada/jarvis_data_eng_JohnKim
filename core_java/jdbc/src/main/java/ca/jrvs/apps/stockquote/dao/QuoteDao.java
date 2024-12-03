@@ -1,14 +1,11 @@
 package ca.jrvs.apps.stockquote.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Optional;
-import java.util.Properties;
 
 public class QuoteDao implements CrudDao<Quote, String> {
 
@@ -117,29 +114,4 @@ public class QuoteDao implements CrudDao<Quote, String> {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        String url = "jdbc:postgresql://localhost:5432/stock_quote";
-        Properties props = new Properties();
-        props.setProperty("user", "postgres");
-        props.setProperty("password", "password");
-        try (Connection conn = DriverManager.getConnection(url, props)) {
-            QuoteHttpHelper httpHelper = new QuoteHttpHelper();
-            Quote test = httpHelper.getStockQuote("GME");
-            QuoteDao dao = new QuoteDao(conn);
-            dao.deleteAll();
-            dao.save(test);
-            Optional<Quote> optionalQuote = dao.findById("GME");
-            optionalQuote.ifPresent(quote -> {
-                // Access methods of the Quote object
-                System.out.println("Quote: " + quote.getPrice());
-            });
-            Iterator<Quote> quotes = dao.findAll().iterator();
-
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }
-
-    }
-
 }
