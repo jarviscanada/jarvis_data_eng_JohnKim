@@ -1,6 +1,7 @@
 package ca.jrvs.apps.stockquote.dao;
 
 import java.io.IOException;
+import java.util.Properties;
 import java.util.Scanner;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -8,6 +9,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ca.jrvs.apps.stockquote.util.PropertiesLoader;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -18,7 +20,8 @@ public class QuoteHttpHelper {
     private OkHttpClient client;
 
     public QuoteHttpHelper() {
-        this.apiKey = System.getenv("VANTAGE_API_KEY");
+        Properties properties = PropertiesLoader.getProperties();
+        this.apiKey = properties.getProperty("api-key");
         this.client = new OkHttpClient();
     }
 
@@ -34,13 +37,12 @@ public class QuoteHttpHelper {
         Request request = new Request.Builder()
                 .url("https://alpha-vantage.p.rapidapi.com/query?function=GLOBAL_QUOTE&symbol=" + ticker
                         + "&datatype=json")
-                .header("X-RapidAPI-Key", "9f33b7490bmsh607e6ec0a839621p1c6ab9jsn91d5f9c379ad")
+                .header("X-RapidAPI-Key", apiKey)
                 .header("X-RapidAPI-Host", "alpha-vantage.p.rapidapi.com")
                 .get()
                 .build();
         try {
             Response response = client.newCall(request).execute();
-            // System.out.println(response.body().string());
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response.body().string());
 
@@ -66,7 +68,8 @@ public class QuoteHttpHelper {
         System.out.println("Please enter a stock ticker symbol: ");
         Scanner ticker = new Scanner(System.in);
         QuoteHttpHelper helper = new QuoteHttpHelper();
-        helper.getStockQuote(ticker.nextLine());
+        Quote quote = helper.getStockQuote(ticker.nextLine());
+        System.out.println(quote);
         ticker.close();
     }
 }

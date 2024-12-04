@@ -3,7 +3,7 @@ package ca.jrvs.apps.stockquote.dao;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.BeforeAll;
+import ca.jrvs.apps.stockquote.util.PropertiesLoader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,11 +23,10 @@ public class PositionDaoTest {
 
     @BeforeEach
     public void setUp() throws SQLException {
-        String url = "jdbc:postgresql://localhost:5432/stock_quote";
-        Properties props = new Properties();
-        props.setProperty("user", "postgres");
-        props.setProperty("password", "password");
-        connection = DriverManager.getConnection(url, props);
+        Properties props = PropertiesLoader.getProperties();
+        String url = "jdbc:postgresql://" + props.getProperty("server") + ":" + props.getProperty("port") + "/"
+                + props.getProperty("database");
+        connection = DriverManager.getConnection(url, props.getProperty("username"), props.getProperty("password"));
 
         QuoteDao quoteDao = new QuoteDao(connection);
         quoteDao.deleteAll();

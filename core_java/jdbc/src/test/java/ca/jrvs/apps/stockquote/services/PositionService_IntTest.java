@@ -6,12 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ca.jrvs.apps.stockquote.dao.Position;
 import ca.jrvs.apps.stockquote.dao.PositionDao;
+import ca.jrvs.apps.stockquote.util.PropertiesLoader;
 
 public class PositionService_IntTest {
 
@@ -20,8 +22,10 @@ public class PositionService_IntTest {
 
     @BeforeEach
     public void setUp() throws SQLException {
-        c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/stock_quote", "postgres",
-                "password");
+        Properties props = PropertiesLoader.getProperties();
+        String url = "jdbc:postgresql://" + props.getProperty("server") + ":" + props.getProperty("port") + "/"
+                + props.getProperty("database");
+        c = DriverManager.getConnection(url, props.getProperty("username"), props.getProperty("password"));
         dao = new PositionDao(c);
         dao.deleteAll();
     }
@@ -45,5 +49,4 @@ public class PositionService_IntTest {
         service.sell("AAPL");
         assertTrue(dao.findById("AAPL").isEmpty());
     }
-
 }
