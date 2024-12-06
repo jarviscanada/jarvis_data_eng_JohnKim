@@ -27,7 +27,11 @@ public class QuoteService {
         if (quote == null) {
             return Optional.empty();
         }
-        dao.save(quote);
+        try {
+            dao.save(quote);
+        } catch (IllegalArgumentException e) {
+            return Optional.empty();
+        }
         return Optional.of(quote);
     }
 }

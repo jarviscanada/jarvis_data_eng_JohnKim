@@ -3,6 +3,8 @@ package ca.jrvs.apps.stockquote.services;
 import ca.jrvs.apps.stockquote.dao.Position;
 import ca.jrvs.apps.stockquote.dao.PositionDao;
 
+import java.util.Optional;
+
 public class PositionService {
 
     private PositionDao dao;
@@ -20,11 +22,23 @@ public class PositionService {
      * @return The position in our database after processing the buy
      */
     public Position buy(String ticker, int numberOfShares, double price) {
-        Position position = new Position();
-        position.setTicker(ticker);
-        position.setNumOfShares(numberOfShares);
-        position.setValuePaid(price * numberOfShares);
-        return dao.save(position);
+        Optional<Position> existingPositionOpt = dao.findById(ticker);
+        Position position;
+        if (existingPositionOpt.isPresent()) {
+            position = existingPositionOpt.get();
+            position.setNumOfShares(position.getNumOfShares() + numberOfShares);
+            position.setValuePaid(position.getValuePaid() + (price * numberOfShares));
+        } else {
+            position = new Position();
+            position.setTicker(ticker);
+            position.setNumOfShares(numberOfShares);
+            position.setValuePaid(price * numberOfShares);
+        }
+        try {
+            return dao.save(position);
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
     }
 
     /**

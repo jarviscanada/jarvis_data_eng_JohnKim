@@ -2,7 +2,6 @@ package ca.jrvs.apps.stockquote.dao;
 
 import java.io.IOException;
 import java.util.Properties;
-import java.util.Scanner;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -19,7 +18,7 @@ public class QuoteHttpHelper {
     private String apiKey;
     private OkHttpClient client;
 
-    public QuoteHttpHelper() {
+    public QuoteHttpHelper(String apiKey) {
         Properties properties = PropertiesLoader.getProperties();
         this.apiKey = properties.getProperty("api-key");
         this.client = new OkHttpClient();
@@ -62,14 +61,5 @@ public class QuoteHttpHelper {
             e.printStackTrace();
         }
         return quote;
-    }
-
-    public static void main(String[] args) {
-        System.out.println("Please enter a stock ticker symbol: ");
-        Scanner ticker = new Scanner(System.in);
-        QuoteHttpHelper helper = new QuoteHttpHelper();
-        Quote quote = helper.getStockQuote(ticker.nextLine());
-        System.out.println(quote);
-        ticker.close();
     }
 }

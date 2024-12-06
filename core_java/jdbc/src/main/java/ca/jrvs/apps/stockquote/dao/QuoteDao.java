@@ -16,6 +16,18 @@ public class QuoteDao implements CrudDao<Quote, String> {
     }
 
     public Quote save(Quote entity) throws IllegalArgumentException {
+        if (entity.getTicker() == null) {
+            throw new IllegalArgumentException("Ticker cannot be null");
+        }
+
+        if (existsById(entity.getTicker())) {
+            return update(entity);
+        } else {
+            return insert(entity);
+        }
+    }
+
+    private Quote insert(Quote entity) {
         String insert = "INSERT INTO quote (symbol, open, high, low, price, volume, latest_trading_day, previous_close, change, timestamp, change_percent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         try (PreparedStatement stmt = c.prepareStatement(insert);) {
             stmt.setString(1, entity.getTicker());
@@ -32,10 +44,41 @@ public class QuoteDao implements CrudDao<Quote, String> {
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (IllegalArgumentException e) {
+        }
+        return entity;
+    }
+
+    private Quote update(Quote entity) {
+        String update = "UPDATE quote SET open = ?, high = ?, low = ?, price = ?, volume = ?, latest_trading_day = ?, previous_close = ?, change = ?, timestamp = ?, change_percent = ? WHERE symbol = ?;";
+        try (PreparedStatement stmt = c.prepareStatement(update);) {
+            stmt.setDouble(1, entity.getOpen());
+            stmt.setDouble(2, entity.getHigh());
+            stmt.setDouble(3, entity.getLow());
+            stmt.setDouble(4, entity.getPrice());
+            stmt.setInt(5, entity.getVolume());
+            stmt.setDate(6, entity.getLatestTradingDay());
+            stmt.setDouble(7, entity.getPreviousClose());
+            stmt.setDouble(8, entity.getChange());
+            stmt.setTimestamp(9, entity.getTimestamp());
+            stmt.setString(10, entity.getChangePercent());
+            stmt.setString(11, entity.getTicker());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return entity;
+    }
+
+    private boolean existsById(String id) {
+        String query = "SELECT 1 FROM quote WHERE symbol = ?;";
+        try (PreparedStatement stmt = c.prepareStatement(query);) {
+            stmt.setString(1, id);
+            ResultSet result = stmt.executeQuery();
+            return result.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public Optional<Quote> findById(String id) throws IllegalArgumentException {

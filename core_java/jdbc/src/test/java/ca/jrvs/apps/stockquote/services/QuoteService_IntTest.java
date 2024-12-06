@@ -34,7 +34,7 @@ public class QuoteService_IntTest {
         c = DriverManager.getConnection(url, props.getProperty("username"), props.getProperty("password"));
         dao = new QuoteDao(c);
         positionDao = new PositionDao(c);
-        helper = new QuoteHttpHelper();
+        helper = new QuoteHttpHelper(props.getProperty("api-key"));
         positionDao.deleteAll();
         dao.deleteAll();
         service = new QuoteService(dao, helper);
