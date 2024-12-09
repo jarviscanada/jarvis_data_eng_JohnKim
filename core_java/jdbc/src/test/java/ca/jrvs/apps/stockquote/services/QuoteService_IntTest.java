@@ -51,7 +51,7 @@ public class QuoteService_IntTest {
     @Test
     public void testFetchQuoteDataFromAPI_Null() {
         Optional<Quote> quoteOptional = service.fetchQuoteDataFromAPI("AAPL2");
-        assertEquals(null, quoteOptional.get().getTicker());
+        assertTrue(quoteOptional.isEmpty());
     }
 
 }

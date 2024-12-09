@@ -45,9 +45,6 @@ public class QuoteHttpHelper {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response.body().string());
 
-            if (root == null || root.get("Global Quote") == null) {
-                throw new IllegalArgumentException("No data found for the given symbol");
-            }
             // Create a Quote object from the JSON response
             String globalQuote = root.get("Global Quote").toString();
             quote = mapper.readValue(globalQuote, Quote.class);

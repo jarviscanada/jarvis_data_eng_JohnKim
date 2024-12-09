@@ -3,12 +3,17 @@ package ca.jrvs.apps.stockquote;
 import java.util.Optional;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import ca.jrvs.apps.stockquote.dao.Position;
 import ca.jrvs.apps.stockquote.dao.Quote;
 import ca.jrvs.apps.stockquote.services.PositionService;
 import ca.jrvs.apps.stockquote.services.QuoteService;
 
 public class StockQuoteController {
+
+    private static Logger logger = LoggerFactory.getLogger(StockQuoteController.class);
 
     private QuoteService quoteService;
     private PositionService positionService;
@@ -24,7 +29,7 @@ public class StockQuoteController {
     public void initClient() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Press 1 to get a quote, 2 to buy a stock, 3 to sell a stock, and 4 to exit");
+            logger.info("Press 1 to get a quote, 2 to buy a stock, 3 to sell a stock, and 4 to exit");
             if (!scanner.hasNextInt()) {
                 System.out.println("Invalid input. Please enter a number.");
                 scanner.next(); // Consume the invalid input
@@ -65,13 +70,9 @@ public class StockQuoteController {
                 scanner.nextLine();
                 try {
                     Position position = positionService.buy(ticker, numberOfShares, price);
-                    if (position != null) {
-                        System.out.println("Bought position: " + position);
-                    } else {
-                        System.out.println("Failed to buy position for ticker: " + ticker);
-                    }
-                } catch (Exception e) {
-                    System.out.println("Error: " + e.getMessage());
+                    System.out.println("Bought position: " + position);
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
                 }
             } else if (choice == 3) {
                 // Sell a stock

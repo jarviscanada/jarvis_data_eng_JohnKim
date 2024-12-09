@@ -13,12 +13,17 @@ import org.junit.jupiter.api.Test;
 
 import ca.jrvs.apps.stockquote.dao.Position;
 import ca.jrvs.apps.stockquote.dao.PositionDao;
+import ca.jrvs.apps.stockquote.dao.QuoteDao;
+import ca.jrvs.apps.stockquote.dao.QuoteHttpHelper;
 import ca.jrvs.apps.stockquote.util.PropertiesLoader;
 
 public class PositionService_IntTest {
 
     private Connection c;
     private PositionDao dao;
+    private QuoteDao quoteDao;
+    private QuoteHttpHelper helper;
+    private QuoteService service;
 
     @BeforeEach
     public void setUp() throws SQLException {
@@ -26,6 +31,11 @@ public class PositionService_IntTest {
         String url = "jdbc:postgresql://" + props.getProperty("server") + ":" + props.getProperty("port") + "/"
                 + props.getProperty("database");
         c = DriverManager.getConnection(url, props.getProperty("username"), props.getProperty("password"));
+        quoteDao = new QuoteDao(c);
+        quoteDao.deleteAll();
+        helper = new QuoteHttpHelper(props.getProperty("api-key"));
+        service = new QuoteService(quoteDao, helper);
+        service.fetchQuoteDataFromAPI("AAPL");
         dao = new PositionDao(c);
         dao.deleteAll();
     }

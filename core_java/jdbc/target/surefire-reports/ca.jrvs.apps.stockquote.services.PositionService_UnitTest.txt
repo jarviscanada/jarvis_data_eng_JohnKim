@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: ca.jrvs.apps.stockquote.services.PositionService_UnitTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
+ca.jrvs.apps.stockquote.services.PositionService_UnitTest.testBuy()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at ca.jrvs.apps.stockquote.services.PositionService_UnitTest.testBuy(PositionService_UnitTest.java:32)
+
+ca.jrvs.apps.stockquote.services.PositionService_UnitTest.testSell()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at ca.jrvs.apps.stockquote.services.PositionService_UnitTest.testSell(PositionService_UnitTest.java:44)
+
