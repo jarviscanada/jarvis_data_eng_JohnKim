@@ -1,6 +1,7 @@
 package ca.jrvs.apps.stockquote.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.sql.Connection;
@@ -9,6 +10,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 import java.util.Properties;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,14 +22,14 @@ import ca.jrvs.apps.stockquote.util.PropertiesLoader;
 
 public class QuoteService_IntTest {
 
-    private Connection c;
-    private QuoteDao dao;
-    private PositionDao positionDao;
-    private QuoteService service;
-    private QuoteHttpHelper helper;
+    private static Connection c;
+    private static QuoteDao dao;
+    private static PositionDao positionDao;
+    private static QuoteService service;
+    private static QuoteHttpHelper helper;
 
-    @BeforeEach
-    public void setUp() throws SQLException {
+    @BeforeAll
+    public static void setUpAll() throws SQLException {
         Properties props = PropertiesLoader.getProperties();
         String url = "jdbc:postgresql://" + props.getProperty("server") + ":" + props.getProperty("port") + "/"
                 + props.getProperty("database");
@@ -38,6 +40,11 @@ public class QuoteService_IntTest {
         positionDao.deleteAll();
         dao.deleteAll();
         service = new QuoteService(dao, helper);
+    }
+
+    @BeforeEach
+    public void setUp() throws SQLException {
+        dao.deleteAll();
     }
 
     @Test

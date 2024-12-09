@@ -1,6 +1,8 @@
 package ca.jrvs.apps.stockquote.dao;
 
 import ca.jrvs.apps.stockquote.util.PropertiesLoader;
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -41,6 +43,17 @@ public class QuoteDaoTest {
         test.setTimestamp(Timestamp.valueOf("2024-01-01 10:10:10.0"));
 
         dao.save(test);
+    }
+
+    @AfterEach
+    public void tearDown() throws SQLException {
+        Properties props = PropertiesLoader.getProperties();
+        String url = "jdbc:postgresql://" + props.getProperty("server") + ":" + props.getProperty("port") + "/"
+                + props.getProperty("database");
+        c = DriverManager.getConnection(url, props.getProperty("username"), props.getProperty("password"));
+        QuoteDao dao = new QuoteDao(c);
+        // Ensure all GME quotes are removed after each test
+        dao.deleteById("GME");
     }
 
     @Test

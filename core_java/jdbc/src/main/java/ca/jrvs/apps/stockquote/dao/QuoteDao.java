@@ -7,7 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class QuoteDao implements CrudDao<Quote, String> {
+
+    private static final Logger logger = LoggerFactory.getLogger(QuoteDao.class);
 
     private Connection c;
 
@@ -43,7 +48,8 @@ public class QuoteDao implements CrudDao<Quote, String> {
             stmt.setString(11, entity.getChangePercent());
             stmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Failed to insert quote: ");
+            throw new IllegalArgumentException("Failed to insert quote: " + e.getMessage(), e);
         }
         return entity;
     }
@@ -64,7 +70,8 @@ public class QuoteDao implements CrudDao<Quote, String> {
             stmt.setString(11, entity.getTicker());
             stmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Failed to update quote: ");
+            throw new IllegalArgumentException("Failed to update quote: " + e.getMessage(), e);
         }
         return entity;
     }
@@ -76,7 +83,7 @@ public class QuoteDao implements CrudDao<Quote, String> {
             ResultSet result = stmt.executeQuery();
             return result.next();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Failed to check if quote exists: ");
         }
         return false;
     }
@@ -102,9 +109,7 @@ public class QuoteDao implements CrudDao<Quote, String> {
                 return Optional.of(quote);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
+            logger.error("Failed to find quote by ID: ");
         }
         return Optional.empty();
     }
@@ -130,9 +135,7 @@ public class QuoteDao implements CrudDao<Quote, String> {
                 ((ArrayList<Quote>) quotes).add(quote);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
+            logger.error("Failed to find all quotes: ");
         }
         return quotes;
     }
@@ -143,9 +146,8 @@ public class QuoteDao implements CrudDao<Quote, String> {
             stmt.setString(1, id);
             stmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
+            logger.error("Failed to delete quote by ID: ");
+            throw new IllegalArgumentException("Failed to delete quote by ID: " + e.getMessage(), e);
         }
     }
 
@@ -154,7 +156,7 @@ public class QuoteDao implements CrudDao<Quote, String> {
         try (PreparedStatement stmt = c.prepareStatement(deleteAll);) {
             stmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Failed to delete all quotes: ");
         }
     }
 }

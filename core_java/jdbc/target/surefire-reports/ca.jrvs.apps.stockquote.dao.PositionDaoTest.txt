@@ -1,20 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ca.jrvs.apps.stockquote.dao.PositionDaoTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
-ca.jrvs.apps.stockquote.dao.PositionDaoTest.testRetrieveAndSave()  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.NullPointerException
-	at ca.jrvs.apps.stockquote.dao.PositionDaoTest.testRetrieveAndSave(PositionDaoTest.java:65)
-
-ca.jrvs.apps.stockquote.dao.PositionDaoTest.testDeleteById()  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.NullPointerException
-	at ca.jrvs.apps.stockquote.dao.PositionDaoTest.testDeleteById(PositionDaoTest.java:72)
-
-ca.jrvs.apps.stockquote.dao.PositionDaoTest.testDeleteAll()  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.NullPointerException
-	at ca.jrvs.apps.stockquote.dao.PositionDaoTest.testDeleteAll(PositionDaoTest.java:79)
-
-ca.jrvs.apps.stockquote.dao.PositionDaoTest.testFindAll()  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.NullPointerException
-	at ca.jrvs.apps.stockquote.dao.PositionDaoTest.testFindAll(PositionDaoTest.java:91)
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s - in ca.jrvs.apps.stockquote.dao.PositionDaoTest

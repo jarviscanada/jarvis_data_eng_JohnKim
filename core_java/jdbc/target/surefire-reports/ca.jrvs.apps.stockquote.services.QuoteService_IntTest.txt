@@ -1,12 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ca.jrvs.apps.stockquote.services.QuoteService_IntTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
-ca.jrvs.apps.stockquote.services.QuoteService_IntTest.testFetchQuoteDataFromAPI_Null()  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.NullPointerException
-	at ca.jrvs.apps.stockquote.services.QuoteService_IntTest.testFetchQuoteDataFromAPI_Null(QuoteService_IntTest.java:53)
-
-ca.jrvs.apps.stockquote.services.QuoteService_IntTest.testFetchQuoteDataFromAPI()  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.NullPointerException
-	at ca.jrvs.apps.stockquote.services.QuoteService_IntTest.testFetchQuoteDataFromAPI(QuoteService_IntTest.java:45)
-
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.82 s - in ca.jrvs.apps.stockquote.services.QuoteService_IntTest

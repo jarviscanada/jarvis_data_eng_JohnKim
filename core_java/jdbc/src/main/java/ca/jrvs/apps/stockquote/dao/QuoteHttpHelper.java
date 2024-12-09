@@ -12,8 +12,12 @@ import ca.jrvs.apps.stockquote.util.PropertiesLoader;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class QuoteHttpHelper {
+
+    private static final Logger logger = LoggerFactory.getLogger(QuoteHttpHelper.class);
 
     private String apiKey;
     private OkHttpClient client;
@@ -42,21 +46,39 @@ public class QuoteHttpHelper {
                 .build();
         try {
             Response response = client.newCall(request).execute();
+            String responseBody = response.body().string();
+            logger.info("API Response: " + responseBody);
             ObjectMapper mapper = new ObjectMapper();
-            JsonNode root = mapper.readTree(response.body().string());
+            JsonNode root = mapper.readTree(responseBody);
 
+            if (root == null || root.get("Global Quote") == null) {
+                throw new IllegalArgumentException("No data found for the given symbol");
+            }
             // Create a Quote object from the JSON response
             String globalQuote = root.get("Global Quote").toString();
             quote = mapper.readValue(globalQuote, Quote.class);
             quote.setTimestamp();
 
         } catch (JsonMappingException e) {
-            e.printStackTrace();
+            logger.error("JsonMappingException: ", e);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            logger.error("JsonProcessingException: ", e);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("IOException: ", e);
         }
         return quote;
+    }
+
+    public static void main(String[] args) {
+        String ticker = "NVDA";
+        Properties properties = PropertiesLoader.getProperties();
+        String apiKey = properties.getProperty("api-key");
+        QuoteHttpHelper helper = new QuoteHttpHelper(apiKey);
+        try {
+            Quote quote = helper.getStockQuote(ticker);
+            logger.info("Quote: " + quote);
+        } catch (Exception e) {
+            logger.error("Exception: ", e);
+        }
     }
 }

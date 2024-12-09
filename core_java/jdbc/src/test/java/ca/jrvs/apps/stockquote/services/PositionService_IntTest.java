@@ -31,13 +31,12 @@ public class PositionService_IntTest {
         String url = "jdbc:postgresql://" + props.getProperty("server") + ":" + props.getProperty("port") + "/"
                 + props.getProperty("database");
         c = DriverManager.getConnection(url, props.getProperty("username"), props.getProperty("password"));
+        dao = new PositionDao(c);
+        dao.deleteAll();
         quoteDao = new QuoteDao(c);
-        quoteDao.deleteAll();
         helper = new QuoteHttpHelper(props.getProperty("api-key"));
         service = new QuoteService(quoteDao, helper);
         service.fetchQuoteDataFromAPI("AAPL");
-        dao = new PositionDao(c);
-        dao.deleteAll();
     }
 
     @Test

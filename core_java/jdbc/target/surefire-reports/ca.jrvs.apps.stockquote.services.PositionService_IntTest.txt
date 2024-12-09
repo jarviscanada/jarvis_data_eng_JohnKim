@@ -1,14 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ca.jrvs.apps.stockquote.services.PositionService_IntTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
-ca.jrvs.apps.stockquote.services.PositionService_IntTest.testBuy()  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.NullPointerException
-	at ca.jrvs.apps.stockquote.services.PositionService.buy(PositionService.java:25)
-	at ca.jrvs.apps.stockquote.services.PositionService_IntTest.testBuy(PositionService_IntTest.java:36)
-
-ca.jrvs.apps.stockquote.services.PositionService_IntTest.testSell()  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.NullPointerException
-	at ca.jrvs.apps.stockquote.services.PositionService.buy(PositionService.java:25)
-	at ca.jrvs.apps.stockquote.services.PositionService_IntTest.testSell(PositionService_IntTest.java:45)
-
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.561 s - in ca.jrvs.apps.stockquote.services.PositionService_IntTest

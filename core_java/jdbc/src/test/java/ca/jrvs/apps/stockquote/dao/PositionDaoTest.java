@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import ca.jrvs.apps.stockquote.util.PropertiesLoader;
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -53,6 +55,13 @@ public class PositionDaoTest {
         entity.setNumOfShares(10);
         entity.setValuePaid(100.0);
         dao.save(entity);
+    }
+
+    @AfterEach
+    public void tearDown() throws SQLException {
+        dao.deleteAll();
+        QuoteDao quoteDao = new QuoteDao(connection);
+        quoteDao.deleteById("GME");
     }
 
     @Test

@@ -8,7 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class PositionDao implements CrudDao<Position, String> {
+
+    private static final Logger logger = LoggerFactory.getLogger(PositionDao.class);
 
     private Connection c;
 
@@ -32,6 +37,7 @@ public class PositionDao implements CrudDao<Position, String> {
             stmt.setDouble(3, entity.getValuePaid());
             stmt.executeUpdate();
         } catch (SQLException e) {
+            logger.error("Failed to insert position: ");
             throw new IllegalArgumentException("Failed to insert position: " + e.getMessage(), e);
         }
         return entity;
@@ -45,6 +51,7 @@ public class PositionDao implements CrudDao<Position, String> {
             stmt.setString(3, entity.getTicker());
             stmt.executeUpdate();
         } catch (SQLException e) {
+            logger.error("Failed to update position: ");
             throw new IllegalArgumentException("Failed to update position: " + e.getMessage(), e);
         }
         return entity;
@@ -57,7 +64,7 @@ public class PositionDao implements CrudDao<Position, String> {
             ResultSet result = stmt.executeQuery();
             return result.next();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Failed to check if position exists: ");
         }
         return false;
     }
@@ -75,7 +82,7 @@ public class PositionDao implements CrudDao<Position, String> {
                 return Optional.of(position);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Failed to find position by ID: ");
         }
         return Optional.empty();
     }
@@ -93,7 +100,7 @@ public class PositionDao implements CrudDao<Position, String> {
                 positions.add(position);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Failed to find all positions: ");
         }
         return positions;
     }
@@ -104,7 +111,8 @@ public class PositionDao implements CrudDao<Position, String> {
             stmt.setString(1, id);
             stmt.executeUpdate();
         } catch (SQLException e) {
-            throw new IllegalArgumentException("Failed to delete position: " + e.getMessage(), e);
+            logger.error("Failed to delete position by ID: ");
+            throw new IllegalArgumentException("Failed to delete position by ID: " + e.getMessage(), e);
         }
     }
 
@@ -113,7 +121,7 @@ public class PositionDao implements CrudDao<Position, String> {
         try (PreparedStatement stmt = c.prepareStatement(deleteAll);) {
             stmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Failed to delete all positions: ");
         }
     }
 }

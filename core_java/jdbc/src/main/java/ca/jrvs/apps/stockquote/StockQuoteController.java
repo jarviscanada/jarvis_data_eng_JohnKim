@@ -31,7 +31,7 @@ public class StockQuoteController {
         while (true) {
             logger.info("Press 1 to get a quote, 2 to buy a stock, 3 to sell a stock, and 4 to exit");
             if (!scanner.hasNextInt()) {
-                System.out.println("Invalid input. Please enter a number.");
+                logger.warn("Invalid input. Please enter a number.");
                 scanner.next(); // Consume the invalid input
                 continue;
             }
@@ -40,29 +40,29 @@ public class StockQuoteController {
 
             if (choice == 1) {
                 // Get a quote
-                System.out.println("Enter the ticker symbol:");
+                logger.info("Enter the ticker symbol:");
                 String ticker = scanner.nextLine();
                 Optional<Quote> quoteOptional = quoteService.fetchQuoteDataFromAPI(ticker);
                 if (quoteOptional.isPresent()) {
                     Quote quote = quoteOptional.get();
-                    System.out.println(quote);
+                    // logger.info("Quote: {}", quote);
                 } else {
-                    System.out.println("Invalid Ticker: " + ticker);
+                    logger.warn("Invalid Ticker: {}", ticker);
                 }
             } else if (choice == 2) {
                 // Buy a stock
-                System.out.println("Enter the ticker symbol:");
+                logger.info("Enter the ticker symbol:");
                 String ticker = scanner.nextLine();
-                System.out.println("Enter the number of shares:");
+                logger.info("Enter the number of shares:");
                 if (!scanner.hasNextInt()) {
-                    System.out.println("Invalid input. Please enter a number.");
+                    logger.warn("Invalid input. Please enter a number.");
                     scanner.next();
                     continue;
                 }
                 int numberOfShares = scanner.nextInt();
-                System.out.println("Enter the price per share:");
+                logger.info("Enter the price per share:");
                 if (!scanner.hasNextDouble()) {
-                    System.out.println("Invalid input. Please enter a valid price.");
+                    logger.warn("Invalid input. Please enter a valid price.");
                     scanner.next();
                     continue;
                 }
@@ -70,22 +70,26 @@ public class StockQuoteController {
                 scanner.nextLine();
                 try {
                     Position position = positionService.buy(ticker, numberOfShares, price);
-                    System.out.println("Bought position: " + position);
-                } catch (IllegalArgumentException e) {
-                    System.out.println(e.getMessage());
+                    if (position != null) {
+                        logger.info("Bought position: {}", position);
+                    } else {
+                        logger.warn("Failed to buy position for ticker: {}", ticker);
+                    }
+                } catch (Exception e) {
+                    logger.error("Error: {}", e.getMessage());
                 }
             } else if (choice == 3) {
                 // Sell a stock
-                System.out.println("Enter the ticker symbol:");
+                logger.info("Enter the ticker symbol:");
                 String ticker = scanner.nextLine();
                 positionService.sell(ticker);
-                System.out.println("Sold all shares of: " + ticker);
+                logger.info("Sold all shares of: {}", ticker);
             } else if (choice == 4) {
                 // Exit
-                System.out.println("Exiting...");
+                logger.info("Exiting...");
                 break;
             } else {
-                System.out.println("Invalid choice");
+                logger.warn("Invalid choice");
             }
         }
         scanner.close();

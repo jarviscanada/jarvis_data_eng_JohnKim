@@ -10,7 +10,7 @@ public class PropertiesLoader {
 
     static {
         properties = new Properties();
-        try (FileInputStream fis = new FileInputStream("src/resources/properties.txt")) {
+        try (FileInputStream fis = new FileInputStream("src/main/resources/properties.txt")) {
             properties.load(fis);
         } catch (IOException e) {
             e.printStackTrace();
