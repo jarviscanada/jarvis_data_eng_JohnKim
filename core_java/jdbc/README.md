@@ -10,8 +10,6 @@ The Stock Quote App is a command-line tool that allows users to fetch real-time 
 
 ## Design Patterns
 
-Discuss DAO and Repository design patterns (150-200 words)
-
 For this application the Data Access Object (DAO) and Repository design patterns are crucial for managing data access in a clean and maintainable way. The DAO pattern abstracts and encapsulates all access to the data source, providing a consistent tool for CRUD operations. This allows the codebase to be easier to maintain and test. Specifically we use the QuoteDao and PositionDao classe which implements the DAO pattern, handling interactions with the PostgreSQL database.
 
 The Repository pattern acts as a storage for objects in memory, providing a more object-oriented way to handle data. It offers a higher-level abstraction over the DAO pattern, focusing on business logic and specific operations. In the Stock Quote App, the QuoteService and PositionService classes implement the Repository pattern, using DAOs to interact with the database while providing business logic for managing quotes and positions.
