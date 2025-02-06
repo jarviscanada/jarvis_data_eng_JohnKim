@@ -1,4 +1,4 @@
-name: base
+name: jrvs_jupy
 channels:
   - conda-forge
   - defaults
@@ -383,7 +383,6 @@ dependencies:
   - scikit-image=0.17.2=py38hc5bc63f_2
   - scikit-learn=0.23.2=py38hee58b96_0
   - scipy=1.5.2=py38h8c5af15_0
-  - seaborn=0.11.0=0
   - seaborn-base=0.11.0=py_0
   - sed=4.8=hbfbb72e_0
   - send2trash=1.5.0=py_0
