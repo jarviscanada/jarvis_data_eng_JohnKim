@@ -4,11 +4,11 @@ I am a recent graduate from the University of Guelph with a Bachelor of Computin
 
 ## Skills
 
-**Proficient:** RDBMS/SQL, Python, PySpark, Linux/Bash, MongoDB, Docker, Typescript/JavaScript, React, Agile/Scrum, Git
+**Proficient:** Python, TypeScript/JavaScript, Java, RDBMS/SQL, Docker, Linux/Bash, React, Agile/Scrum
 
-**Competent:** CI/CD, NodeJS, NextJS, REST API, Java, C
+**Competent:** CI/CD, PySpark, Pandas, MongoDB, NextJS, NodeJS, Maven
 
-**Familiar:** AWS DynamoDB, Firebase + Firestore, DataBricks, Google Cloud Platform (GCP), GraphQL, Flask
+**Familiar:** AWS DynamoDB, DataBricks, Jupyter Notebook, Google Cloud Platform (GCP), Flask
 
 ## Jarvis Projects
 
@@ -22,7 +22,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JohnKim](h
   - JDBC App: The Stock Quote App is a tool that allows users to fetch real-time stock quotes, buy and sell stocks, and manage their stock portfolio. Developed in Java, it leverages JDBC for database interactions with PostgreSQL, OkHttp for HTTP requests to fetch stock data from the Alpha Vantage API, and SLF4J for logging. The app follows the DAO design pattern for data access and is built with Maven. It is packaged with Docker and can be easily deployed using Docker Compose, ensuring a consistent execution environment.
   - Grep App: The Java Grep App is a command-line tool that mimics the grep command. It searches for regex patterns in text files within a specified directory and its subdirectories, outputting matched lines to a file. Developed in Java, it leverages core Java libraries for file I/O, regex matching, and logging with SLF4J. The app uses Stream APIs for memory efficiency and is built with Maven, packaged with Docker, and uploaded to Docker Hub for ease of use.
 
-**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JohnKim/tree/master/python_data_analytics)]: This project includes the proof of concept (POC) created by data engineering consultants within Jarvis Consulting Group to help the LGS marketing team better understand their customer shopping patterns. All the analysis are presented within the Jupyter notebook, using Python + Pandas for dataframes and Matplotlib for graphing.
+**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JohnKim/tree/master/python_data_analytics)]: Developed a proof of concept (POC) to help the LGS (London Gift Shop) marketing team to better understand their customer shopping patterns. All the analysis are presented within the Jupyter notebook, using Python + Pandas for dataframes and Matplotlib for graphing.
 
 
 ## Highlighted Projects
