@@ -1,0 +1,27 @@
+version: "3.5"
+
+services:
+  stock-quote:
+    image: jonbkim/stockquote:latest
+    ports:
+      - "8080:8080"
+    tty: true
+    stdin_open: true
+    depends_on:
+      - postgres
+    restart: no
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: no
+
+volumes:
+  pgdata:
+    external: true
