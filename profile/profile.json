@@ -41,6 +41,11 @@
       "description": "Developed a proof of concept (POC) to help the LGS (London Gift Shop) marketing team to better understand their customer shopping patterns. All the analysis are presented within the Jupyter notebook, using Python + Pandas for dataframes and Matplotlib for graphing.",
       "git_url": "/python_data_analytics",
       "name": "Python Data Analytics"
+    },
+    {
+      "description": "Built large-scale data ingestion, transformation, and analytical modeling pipelines using Apache Spark. Built with PySpark and Scala, the project includes RFM-based customer segmentation and macroeconomic data analysis, executed across Databricks and GCP Dataproc Hadoop clusters.",
+      "git_url": "/spark",
+      "name": "Spark"
     }
   ],
   "name": "John Kim",
