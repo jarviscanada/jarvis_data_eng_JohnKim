@@ -24,6 +24,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JohnKim](h
 
 **Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JohnKim/tree/master/python_data_analytics)]: Developed a proof of concept (POC) to help the LGS (London Gift Shop) marketing team to better understand their customer shopping patterns. All the analysis are presented within the Jupyter notebook, using Python + Pandas for dataframes and Matplotlib for graphing.
 
+**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_JohnKim/tree/master/spark)]: Built large-scale data ingestion, transformation, and analytical modeling pipelines using Apache Spark. Built with PySpark and Scala, the project includes RFM-based customer segmentation and macroeconomic data analysis, executed across Databricks and GCP Dataproc Hadoop clusters.
+
 
 ## Highlighted Projects
 **DALL-E 3 Image Embedder CI/CD Action** [[GitHub](https://github.com/peanutKim/dalle3-html-image-embedder)]: Released a CI/CD GitHub Action on the marketplace, that automates the process of embedding AI-generated image elements into HTML files. Leveraged OpenAI’s DALL-E 3 AI model to generate images from textual descriptions found within HTML comments and utilized BeautifulSoup in Python to parse HTML files, identify custom comments for image generation, and replace them with img tags. Finally, packaged the Bash and Python scripts within a Docker Container to ensure consistency and reliability across different execution environments.
