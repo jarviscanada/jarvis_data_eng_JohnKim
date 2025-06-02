@@ -39,7 +39,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JohnKim](h
 
 **University of Guelph (2019-2022)**, Honours Bachelor of Computing, Computer Science
 
-- Dean's List (2022)
+- Dean's List (2022, 2021)
 
 ## Miscellaneous
 
