@@ -4,9 +4,9 @@ I am a recent graduate from the University of Guelph with a Bachelor of Computin
 
 ## Skills
 
-**Proficient:** Python, TypeScript/JavaScript, Java, RDBMS/SQL, Docker, Linux/Bash, React, Agile/Scrum
+**Proficient:** React, TypeScript/JavaScript, Python, Java, RDBMS/SQL, Docker, Linux/Bash, Agile/Scrum
 
-**Competent:** CI/CD, PySpark, Pandas, MongoDB, NextJS, NodeJS, Maven
+**Competent:** Azure, NextJS, Remix, C, GraphQL, MongoDB, NodeJS, Maven, Spark, Pandas, CI/CD 
 
 **Familiar:** AWS DynamoDB, DataBricks, Jupyter Notebook, Google Cloud Platform (GCP), Flask
 
