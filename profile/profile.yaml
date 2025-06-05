@@ -12,23 +12,24 @@ summary: "I am a recent graduate from the University of Guelph with a Bachelor o
 skills:
   # At least 5 skills
   proficient:
-    - Python
+    - React
     - TypeScript/JavaScript
+    - Python
     - Java
     - RDBMS/SQL
     - Docker
     - Linux/Bash
-    - React
     - Agile/Scrum
   # At least 5 skills
   competent:
-    - CI/CD
-    - PySpark
-    - Pandas
-    - MongoDB
+    - Azure
     - NextJS
+    - Remix
     - NodeJS
+    - MongoDB
     - Maven
+    - Spark
+    - Pandas
   # At least 5 skills
   familiar:
     - AWS DynamoDB
