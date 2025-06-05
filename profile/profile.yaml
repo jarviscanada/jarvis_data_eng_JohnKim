@@ -73,7 +73,7 @@ highlighted_projects:
     description: Released a CI/CD GitHub Action on the marketplace, that automates the process of embedding AI-generated image elements into HTML files. Leveraged OpenAI’s DALL-E 3 AI model to generate images from textual descriptions found within HTML comments and utilized BeautifulSoup in Python to parse HTML files, identify custom comments for image generation, and replace them with img tags. Finally, packaged the Bash and Python scripts within a Docker Container to ensure consistency and reliability across different execution environments.
   - name: "UofG Docker/Kurbernetes Education Environments"
     git_url:
-    description: Assisted Dr.McCuaig in creating Docker/ Kubernetes solutions to provide UofG CS courses with remote programming container environments. Presented a mechanism proposal to university system administrators, facilitating selection of preferred mechanisms for further development. Produced video step-by-step documentation to guide future students, teaching assistants, and instructors in using the container environments effectively.
+    description: Developed with Dr.McCuaig a Docker-based remote Linux environment for second- and third-year Operating Systems courses at the University of Guelph. These environments addressed issues like infinite forking in student code, which had previously crashed the school's SSH servers typically around due dates. Produced detailed video documentation to guide students in setting up local containers via Docker Hub and connecting to their Azure-hosted environments. This solution also simplified system administration and significantly improved course infrastructure stability.
 
 #List of professional experience
 #The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
@@ -84,11 +84,11 @@ professional_experience:
     company: "Jarvis"
     duration: "2024-present"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Collaborated within Agile/Scrum teams on diverse software and data-driven projects, participating in daily stand-ups, reviews, and sprints. Developed a Linux Cluster Monitoring Agent using Docker, Bash, and PostgreSQL to gather performance data, improving resource analytics. Utilized GitFlow for version control, ensuring consistency across remote repositories throughout the SDLC."
+    description: "Collaborated within Agile/Scrum teams on diverse software and data-driven projects, actively participating in daily stand-ups, sprint planning, and reviews. Developed a proof-of-concept web application for the Jarvis sales team to showcase consultant profiles using TypeScript, TailwindCSS, Payload CMS, Next.js, and MongoDB, deployed on AWS. Built a Linux Cluster Monitoring Agent using Docker, Bash, and PostgreSQL to collect and analyze system performance data, enhancing resource usage visibility. Followed GitFlow for version control, maintaining code consistency across remote repositories throughout the SDLC."
   - title: "Full Stack Developer"
     company: "PurchaseKorea LLC"
     duration: "2023-2024"
-    description: "Led the development of PurchaseKorea.com, achieving 10K+ monthly active users within the first six months of launch. Developed the e-commerce platform utilizing technologies such as Next.js, React, TRPC, TypeScript, Payload CMS, Tailwind, Express, React-Query, and more. Developed and managed the MongoDB database, ensuring efficient data storage and retrieval to achieve optimal cost per performance. Deployed Docker containers on Google Cloud Platform (GCP), running Node.js scripts to support application functionality. Coordinated with team members to align project sprint goals and timelines."
+    description: "Led the development of PurchaseKorea.com, achieving 10K+ monthly active users and 250k+ gross revenue within the first year of launch. Developed the e-commerce platform utilizing technologies such as Next.js, React, TRPC, TypeScript, Payload CMS, Tailwind, Express, React-Query, and more. Developed and managed the MongoDB database, ensuring efficient data storage and retrieval to achieve optimal cost per performance. Deployed Docker containers on Google Cloud Platform (GCP), running Node.js scripts to support application functionality. Coordinated with team members to align project sprint goals and timelines."
 
 #List of edcuation
 education: 
@@ -98,7 +98,7 @@ education:
     department: "Computer Science"
     # optional
     awards_achievements: 
-      - "Dean's List (2022)"
+      - "Dean's List (2022, 2021)"
 
 #Optional section
 others:
