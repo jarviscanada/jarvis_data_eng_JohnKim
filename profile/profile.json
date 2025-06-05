@@ -69,13 +69,14 @@
   ],
   "skills": {
     "competent": [
-      "CI/CD",
-      "PySpark",
-      "Pandas",
-      "MongoDB",
+      "Azure",
       "NextJS",
+      "Remix",
       "NodeJS",
-      "Maven"
+      "MongoDB",
+      "Maven",
+      "Spark",
+      "Pandas"
     ],
     "familiar": [
       "AWS DynamoDB",
@@ -85,13 +86,13 @@
       "Flask"
     ],
     "proficient": [
-      "Python",
+      "React",
       "TypeScript/JavaScript",
+      "Python",
       "Java",
       "RDBMS/SQL",
       "Docker",
       "Linux/Bash",
-      "React",
       "Agile/Scrum"
     ]
   },
