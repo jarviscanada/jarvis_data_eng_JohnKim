@@ -42,8 +42,6 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_JohnKim](h
 **University of Guelph (2019-2022)**, Honours Bachelor of Computing, Computer Science
 - Dean's List (2022, 2021)
 
-=======
-- Dean's List (2022, 2021)
 
 ## Miscellaneous
 - TFT Auto Chess - Reached top 100 NA (0.011% of player base) and played in multiple tournaments series with thousands of dollars in prize pools.
